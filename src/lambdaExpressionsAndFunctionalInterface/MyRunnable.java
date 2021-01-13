@@ -1,4 +1,4 @@
-package java8POCs;
+package lambdaExpressionsAndFunctionalInterface;
 
 class MyRunnable implements Runnable {
 

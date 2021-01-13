@@ -1,4 +1,4 @@
-package java8POCs;
+package lambdaExpressionsAndFunctionalInterface;
 
 // explicitly specifying that the  interface is a FunctionalInterface and please dont add any other abstract methods in it
 

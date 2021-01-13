@@ -1,4 +1,4 @@
-package java8POCs;
+package lambdaExpressionsAndFunctionalInterface;
 
 public class Demo implements Interf {
 
