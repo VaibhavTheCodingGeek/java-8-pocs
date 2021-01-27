@@ -14,9 +14,12 @@ public class ConsumerChainingExample {
 				.println("Movie name " + m.name + " information stored in db");
 
 		// Chaining of consumer and then merging all the cnsumers together in a
-		// single consumer
+		// single consumer using defualt methid andThen()
 		Consumer<Movie1> chainedConsumer = c1.andThen(c2).andThen(c3);
 		Movie1 m = new Movie1("bahubali", "hit");
+
+		// creating movie and then passing it accept() abstract method of
+		// comsumer
 		chainedConsumer.accept(m);
 
 	}

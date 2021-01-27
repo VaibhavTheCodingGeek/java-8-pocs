@@ -32,7 +32,7 @@ public class FunctionChainingDemo {
 		System.out.println(
 				"Result of f3.andThen(f4) " + f3.andThen(f4).apply(10));
 
-		// here first i's cude will be calculated and then it will be added
+		// here first i's cube will be calculated and then it will be added
 		// twice(i*i*i) =1000 and the add 1000 + 1000 and
 		System.out.println(
 				"Result of f3.compose(f4) " + f3.compose(f4).apply(10));
