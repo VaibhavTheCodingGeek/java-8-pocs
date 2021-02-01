@@ -2,7 +2,7 @@ package PrimitiveTypeFunctionalInterface;
 
 import java.util.function.IntPredicate;
 
-public class IntPredicateDemo {
+public class PrimitivePredicateDemo {
 
 	public static void main(String[] args) {
 
