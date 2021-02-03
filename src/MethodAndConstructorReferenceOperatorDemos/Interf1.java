@@ -1,6 +1,6 @@
 package MethodAndConstructorReferenceOperatorDemos;
 
 public interface Interf1 {
-	public Sample get();
+	public void get();
 
 }
