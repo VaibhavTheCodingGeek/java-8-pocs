@@ -1,7 +1,12 @@
 package Streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,6 +23,9 @@ public class StreamDemo {
 		numbersList.add(25);
 
 		// using streams to filter out even no.s from the list l
+		Integer sumOfInts = numbersList.stream().filter(i -> i > 5).reduce(0,
+				(a, b) -> a + b);
+		System.out.println("sum of ints > 5 is =>>> "+sumOfInts);
 
 		List<Integer> l1 = numbersList.stream().filter(i -> i % 2 == 0)
 				.collect(Collectors.toList());
@@ -102,6 +110,36 @@ public class StreamDemo {
 		Double[] d = {10.1, 10.2, 10.3, 10.4, 10.5};
 		Stream<Double> sd = Stream.of(d);
 		sd.forEach(System.out::println);
+
+		Map<Integer, Integer> myMap = new HashMap<Integer, Integer>();
+
+		myMap.put(1, 100);
+		myMap.put(2, 200);
+		myMap.put(3, 300);
+		Map<Integer, Integer> sortedMap = myMap.entrySet().stream()
+				.sorted(Map.Entry.<Integer, Integer>comparingByValue()
+						.reversed())
+				.collect(Collectors.toMap(Map.Entry::getKey,
+						Map.Entry::getValue, (oldValue, newValue) -> oldValue,
+						LinkedHashMap::new));
+		
+		Map<Integer, Integer> sortedMapByKey = myMap.entrySet().stream()
+				.sorted(Map.Entry.<Integer, Integer>comparingByKey()
+						.reversed())
+				.collect(Collectors.toMap(Map.Entry::getKey,
+						Map.Entry::getValue, (oldValue, newValue) -> oldValue,
+						LinkedHashMap::new));
+		
+		
+		System.out.println("elements from sorted map w.r.t values are:-");
+		for (Map.Entry<Integer, Integer> e : sortedMap.entrySet()) {
+			System.out.println(e.getValue());
+		}
+		
+		System.out.println("elements from sorted map w.r.t keys are:-");
+		for (Map.Entry<Integer, Integer> e : sortedMapByKey.entrySet()) {
+			System.out.println(e.getKey());
+		}
 
 	}
 
